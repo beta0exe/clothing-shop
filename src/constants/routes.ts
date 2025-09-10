@@ -31,6 +31,7 @@ export const Products = [
         color: "black",
         category: "t-shirt",
         sizes: ["Small", "Medium", "Large"],
+        style: "Casual",
     },
     {
         id: 2,
@@ -43,6 +44,7 @@ export const Products = [
         color: "white",
         category: "shirt",
         sizes: ["Medium", "Large"],
+        style: "Formal",
     },
     {
         id: 3,
@@ -55,6 +57,7 @@ export const Products = [
         color: "darkBlue",
         category: "jeans",
         sizes: ["Small", "Medium", "Large"],
+        style: "Casual",
     },
     {
         id: 4,
@@ -66,6 +69,7 @@ export const Products = [
         color: "red",
         category: "t-shirt",
         sizes: ["Medium", "Large"],
+        style: "Party",
     },
     {
         id: 5,
@@ -77,6 +81,7 @@ export const Products = [
         color: "brownish",
         category: "shirt",
         sizes: ["Small", "Medium"],
+        style: "Formal",
     },
     {
         id: 6,
@@ -88,6 +93,7 @@ export const Products = [
         color: "greenish",
         category: "shorts",
         sizes: ["Medium", "Large"],
+        style: "Gym",
     },
     {
         id: 7,
@@ -100,6 +106,7 @@ export const Products = [
         color: "orange",
         category: "t-shirt",
         sizes: ["Small", "Medium", "Large"],
+        style: "Casual",
     },
     {
         id: 8,
@@ -111,6 +118,7 @@ export const Products = [
         color: "blue",
         category: "jeans",
         sizes: ["Medium", "Large"],
+        style: "Casual",
     },
     {
         id: 9,
@@ -123,6 +131,7 @@ export const Products = [
         color: "navy",
         category: "shirt",
         sizes: ["Medium", "Large", "X_Large"],
+        style: "Formal",
     },
     {
         id: 10,
@@ -134,6 +143,7 @@ export const Products = [
         color: "purple",
         category: "hoodie",
         sizes: ["Large", "X_Large", "XX-Large"],
+        style: "Casual",
     },
     {
         id: 11,
@@ -145,6 +155,7 @@ export const Products = [
         color: "blue",
         category: "jeans",
         sizes: ["Medium", "Large"],
+        style: "Casual",
     },
     {
         id: 12,
@@ -157,6 +168,7 @@ export const Products = [
         color: "yellow",
         category: "sweatshirt",
         sizes: ["Small", "Medium", "Large"],
+        style: "Gym",
     },
     {
         id: 13,
@@ -168,6 +180,7 @@ export const Products = [
         color: "black",
         category: "jacket",
         sizes: ["Medium", "Large"],
+        style: "Casual",
     },
     {
         id: 14,
@@ -180,6 +193,7 @@ export const Products = [
         color: "green",
         category: "shorts",
         sizes: ["Small", "Medium"],
+        style: "Gym",
     },
     {
         id: 15,
@@ -191,6 +205,7 @@ export const Products = [
         color: "pink",
         category: "polo",
         sizes: ["Medium", "Large", "X_Large"],
+        style: "Casual",
     },
     {
         id: 16,
@@ -202,8 +217,10 @@ export const Products = [
         color: "black",
         category: "trousers",
         sizes: ["Medium", "Large"],
+        style: "Formal",
     },
 ];
+
 
 
 

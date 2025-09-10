@@ -2,6 +2,7 @@
 "use client";
 
 import { Products } from "@/constants/routes";
+import FilterTitle from "@/components/FilterTitle";
 
 interface CategoryFiltersProps {
     selectedCategories: string[];
@@ -24,14 +25,14 @@ export default function CategoryFilters({
 
     return (
         <div className="border-b border-gray-300 pb-5">
-            <h2 className="font-bold text-xl mb-4">Type</h2>
+            <FilterTitle title="Dress Types" >
             <div className="flex flex-col gap-2">
                 {categories.map((cat) => {
                     const active = selectedCategories.includes(cat);
                     return (
                         <button
                             key={cat}
-                            className={`text-left px-3 py-2 rounded-md border ${
+                            className={`text-xl text-[#666666] ml-3 text-left px-3 py-4 rounded-md border ${
                                 active
                                     ? "bg-black text-white border-black"
                                     : "bg-white text-gray-700 border-gray-200"
@@ -43,15 +44,8 @@ export default function CategoryFilters({
                     );
                 })}
             </div>
+            </FilterTitle>
 
-            {selectedCategories.length > 0 && (
-                <button
-                    className="mt-4 text-sm underline"
-                    onClick={() => onChange([])}
-                >
-                    Clear all
-                </button>
-            )}
         </div>
     );
 }
