@@ -1,17 +1,25 @@
 "use client"
 import React from 'react';
-import {ProductsType} from "../constants/types"
+import {CartItem, ProductsType} from "../constants/types"
 import {Star} from "lucide-react";
 import DiscountLabel from "@/components/DiscountLabel";
 import { useState } from "react";
 import { Check } from "lucide-react";
 import {Bcolors,Sizes} from "@/constants/routes";
+import {useAppDispatch, useAppSelector} from "@/store/store";
+import {cartIncrement, productQuantitySelector} from "@/store/features/cartSlice";
 
 
+interface products {
+    products : ProductsType
+}
 
-const ProductDetail = ({item}:{item:ProductsType|null}) => {
+
+const ProductDetail = ({item}:{item:ProductsType}) => {
     const [selected, setSelected] = useState(Bcolors[0].id);
-
+    const quantity = useAppSelector((state) =>
+        productQuantitySelector(state,item.id));
+    const dispatch = useAppDispatch();
     const [sizeSelected, setSizeSelected] = useState<string>(Sizes[0]);
 
     const [count, setCount] = useState(1);
@@ -110,7 +118,9 @@ const ProductDetail = ({item}:{item:ProductsType|null}) => {
                         +
                     </button>
                 </div>
-                <button className={"bg-black font-semibold w-96 h-14 rounded-full text-secondary active:bg-red-700"}>
+                <button onClick={()=>dispatch(cartIncrement(
+                    {product:item,color:selected,size:sizeSelected,quantity:count}))}
+                        className={"bg-black font-semibold w-96 h-14 rounded-full text-secondary active:bg-red-700"}>
                     Add to Cart
                 </button>
             </div>

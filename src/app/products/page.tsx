@@ -18,11 +18,11 @@ interface Props {
 }
 
 export default async function ProductsPage({ searchParams }: Props) {
-    const currentPage = Number(searchParams.page) || 1;
+    const searchParams1 = await searchParams
+    const currentPage = Number(searchParams1.page) || 1;
     const productsPerPage = 9;
 
     // --- SERVER-SIDE FILTERING ---
-    const searchParams1 = await searchParams
     const selectedCategories = searchParams1.categories?.split(",") ?? [];
     const selectedColors = searchParams1.colors?.split(",") ?? [];
     const selectedSizes = searchParams1.sizes?.split(",") ?? [];
@@ -40,17 +40,17 @@ export default async function ProductsPage({ searchParams }: Props) {
         const matchStyle = selectedStyle.length === 0 || selectedStyle.includes(p.style);
 
         const matchPrice =
-            p.price >= (Number(searchParams.minPrice) || 0) &&
-            p.price <= (Number(searchParams.maxPrice) || 500);
+            p.price >= (Number(searchParams1.minPrice) || 0) &&
+            p.price <= (Number(searchParams1.maxPrice) || 500);
 
 
 
         return matchCategory && matchColor && matchSize && matchStyle && matchPrice;
     });
 
-    if (searchParams.sort === "priceAsc") {
+    if (searchParams1.sort === "priceAsc") {
         filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (searchParams.sort === "priceDesc") {
+    } else if (searchParams1.sort === "priceDesc") {
         filteredProducts.sort((a, b) => b.price - a.price);
     }
 

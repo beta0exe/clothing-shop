@@ -5,6 +5,7 @@ import SingUpDiscount from "@/components/SingUpDiscount";
 import {Nav_routes} from "@/constants/routes";
 import Link from "next/link";
 import {ChevronDown, ChevronUp, CircleUserRound, Search, ShoppingCart} from "lucide-react"
+import ShoppingCardNav from "@/components/ShoppingCartNav";
 
 const Navbar = ({className}:{className?:string}) => {
     const [openDropdown, setOpenDropdown] = useState(false);
@@ -39,7 +40,7 @@ const Navbar = ({className}:{className?:string}) => {
                     />
                 </div>
                 <div className={"flex items-center gap-3 relative"}>
-                    <ShoppingCart  className={"cursor-pointer hover:text-red-700"}/>
+                    <Link href={"/cart"}><ShoppingCardNav /></Link>
                     <CircleUserRound  className={"cursor-pointer hover:text-red-700"}/>
                 </div>
             </div>
