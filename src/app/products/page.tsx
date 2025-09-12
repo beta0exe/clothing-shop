@@ -12,7 +12,8 @@ interface Props {
         style?: string;
         minPrice?: string;
         maxPrice?: string;
-        sort?: "priceAsc" | "priceDesc"; // new param for sorting
+        sort?: "priceAsc" | "priceDesc";
+        search?: string;
 
     };
 }
@@ -30,22 +31,18 @@ export default async function ProductsPage({ searchParams }: Props) {
 
 
 
-    const filteredProducts = datas.filter((p) => {
-        const matchCategory =
-            selectedCategories.length === 0 || selectedCategories.includes(p.category);
-        const matchColor =
-            selectedColors.length === 0 || p.color.some((c) => selectedColors.includes(c));
-        const matchSize =
-            selectedSizes.length === 0 || p.sizes.some((size) => selectedSizes.includes(size));
-        const matchStyle = selectedStyle.length === 0 || p.style.some((s) => selectedStyle.includes(s));
+    const searchQuery = searchParams1.search?.toLowerCase() || "";
 
-        const matchPrice =
-            p.price >= (Number(searchParams1.minPrice) || 0) &&
+    const filteredProducts = datas.filter((p) => {
+        const matchSearch = searchQuery === "" || p.name.toLowerCase().includes(searchQuery);
+        const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(p.category);
+        const matchColor = selectedColors.length === 0 || p.color.some((c) => selectedColors.includes(c));
+        const matchSize = selectedSizes.length === 0 || p.sizes.some((size) => selectedSizes.includes(size));
+        const matchStyle = selectedStyle.length === 0 || p.style.some((s) => selectedStyle.includes(s));
+        const matchPrice = p.price >= (Number(searchParams1.minPrice) || 0) &&
             p.price <= (Number(searchParams1.maxPrice) || 500);
 
-
-
-        return matchCategory && matchColor && matchSize && matchStyle && matchPrice;
+        return matchSearch && matchCategory && matchColor && matchSize && matchStyle && matchPrice;
     });
 
     if (searchParams1.sort === "priceAsc") {
