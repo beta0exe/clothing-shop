@@ -11,7 +11,7 @@ interface ProductCommentSectionProps {
 
 
 export default function ProductCommentSection({ id }: ProductCommentSectionProps) {
-    const [sectionSelected, setSectionSelected] = useState<string>(CommentSections[0]);
+    const [sectionSelected, setSectionSelected] = useState<string>(CommentSections[1]);
     const [visibleCount, setVisibleCount] = useState<number>(6);
     const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 

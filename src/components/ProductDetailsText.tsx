@@ -1,24 +1,22 @@
 "use client"
 import React from 'react';
-import {CartItem, ProductsType} from "../constants/types"
+import {CartItem, Product, ProductsType} from "../constants/types"
 import {Star} from "lucide-react";
 import DiscountLabel from "@/components/DiscountLabel";
 import { useState } from "react";
 import { Check } from "lucide-react";
-import {Bcolors,Sizes} from "@/constants/routes";
+import {Bcolors, FilterColors, Products, Sizes} from "@/constants/routes";
 import {useAppDispatch, useAppSelector} from "@/store/store";
 import {cartIncrement, productQuantitySelector} from "@/store/features/cartSlice";
 
 
 interface products {
-    products : ProductsType
+    products : Product
 }
 
 
-const ProductDetail = ({item}:{item:ProductsType}) => {
+const ProductDetail = ({item}:{item:Product}) => {
     const [selected, setSelected] = useState(Bcolors[0].id);
-    const quantity = useAppSelector((state) =>
-        productQuantitySelector(state,item.id));
     const dispatch = useAppDispatch();
     const [sizeSelected, setSizeSelected] = useState<string>(Sizes[0]);
 
@@ -55,32 +53,32 @@ const ProductDetail = ({item}:{item:ProductsType}) => {
                  <p className={"text-[#616060]  text-xl font-medium"}>Select Colors</p>
                  {/*colors*/}
                  <div className="flex items-center gap-4 py-3">
-                     {Bcolors.map((c) => (
-                         <button
-                             key={c.id}
-                             type="button"
-                             onClick={(e) => (e.preventDefault(), setSelected(c.id))}
-                             className="
-            w-12 h-12 rounded-full flex items-center justify-center border-2 transition
-            outline-none ring-0 ring-offset-0 shadow-none
-            focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-none
-            focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0
-          "
-                             style={{
-                                 backgroundColor: c.hex,
-                                 borderColor: "transparent",
-                                 WebkitTapHighlightColor: "transparent", // iOS Safari tap highlight
-                             }}
-                             aria-pressed={selected === c.id}
-                         >
-                             {selected === c.id && <Check size={20} color="white" />}
-                         </button>
-                     ))}
+                     {item.color?.map((colorId) => {
+                         const colorObj = FilterColors.find((fc) => fc.id === colorId);
+                         if (!colorObj) return null; // skip if color not found
+
+                         return (
+                             <button
+                                 key={colorId}
+                                 type="button"
+                                 onClick={(e) => (e.preventDefault(), setSelected(colorId))}
+                                 className="w-12 h-12 rounded-full flex items-center justify-center border-2 transition ring-1 ring-gray-400 "
+                                 style={{
+                                     backgroundColor: colorObj.hex, // ✅ USE HEX VALUE
+                                     borderColor: "transparent",
+                                     WebkitTapHighlightColor: "transparent",
+                                 }}
+                                 aria-pressed={selected === colorId}
+                             >
+                                 {selected === colorId && <Check size={20} color="gray" />}
+                             </button>
+                         );
+                     })}
                  </div>
              </div>
             <div className={"py-3 border-b-1 border-gray-300"}>
                 <p className={"text-[#616060] py-3  text-xl font-medium"}>Choose Size</p>
-                {Sizes.map((c) => (
+                {item.sizes?.map((c) => (
                         <button
                             type="button"
                             key={c}

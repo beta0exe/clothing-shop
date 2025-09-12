@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default async function ProductsPage({ searchParams }: Props) {
-    const searchParams1 = await searchParams
+    const searchParams1 = await searchParams;
     const currentPage = Number(searchParams1.page) || 1;
     const productsPerPage = 9;
 
@@ -34,10 +34,10 @@ export default async function ProductsPage({ searchParams }: Props) {
         const matchCategory =
             selectedCategories.length === 0 || selectedCategories.includes(p.category);
         const matchColor =
-            selectedColors.length === 0 || selectedColors.includes(p.color);
+            selectedColors.length === 0 || p.color.some((c) => selectedColors.includes(c));
         const matchSize =
             selectedSizes.length === 0 || p.sizes.some((size) => selectedSizes.includes(size));
-        const matchStyle = selectedStyle.length === 0 || selectedStyle.includes(p.style);
+        const matchStyle = selectedStyle.length === 0 || p.style.some((s) => selectedStyle.includes(s));
 
         const matchPrice =
             p.price >= (Number(searchParams1.minPrice) || 0) &&

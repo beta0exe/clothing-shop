@@ -11,7 +11,7 @@ const BrowseSection = () => {
                 <div className="flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 flex-1 w-full md:p-10 gap-5 md:gap-7">
 
                     <Link
-                        href="/"
+                        href="/products"
                         className="block col-start-1 col-end-2 row-start-1 row-end-2 rounded-2xl overflow-hidden hover:scale-105 transition duration-300"
                     >
                         <Image
@@ -24,7 +24,7 @@ const BrowseSection = () => {
                     </Link>
 
                     <Link
-                        href="/"
+                        href="/products"
                         className="block col-start-2 col-end-4 row-start-1 row-end-2 rounded-2xl overflow-hidden hover:scale-105 transition duration-300"
                     >
                         <Image
@@ -37,7 +37,7 @@ const BrowseSection = () => {
                     </Link>
 
                     <Link
-                        href="/"
+                        href="/products"
                         className="block col-start-3 col-end-4 row-start-2 row-end-3 rounded-2xl overflow-hidden hover:scale-105 transition duration-300"
                     >
                         <Image
@@ -50,7 +50,7 @@ const BrowseSection = () => {
                     </Link>
 
                     <Link
-                        href="/"
+                        href="/products"
                         className="block col-start-1 col-end-3 row-start-2 row-end-3 rounded-2xl overflow-hidden hover:scale-105 transition duration-300"
                     >
                         <Image

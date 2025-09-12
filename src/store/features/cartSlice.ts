@@ -20,6 +20,7 @@ interface AddToCartPayload {
 interface RemoveFromCartPayload {
     product: ProductsType;
     color: string;
+    quantity: number;
     size: string;
 }
 
@@ -61,6 +62,16 @@ export const cartSlice = createSlice({
                 }
             }
         },
+        cartRemove: (state, action) => {
+            state.cartItems = state.cartItems.filter(
+                (item) =>
+                    !(
+                        item.product.id === action.payload.product.id &&
+                        item.color === action.payload.color &&
+                        item.size === action.payload.size
+                    )
+            );
+        },
     },
 });
 
@@ -84,5 +95,5 @@ export const productQuantitySelector = createSelector(
         cartItems.find((el) => el.product.id === productId)?.quantity
 );
 
-export const { cartIncrement, cartDecrement } = cartSlice.actions;
+export const { cartIncrement, cartDecrement,cartRemove } = cartSlice.actions;
 export default cartSlice.reducer;

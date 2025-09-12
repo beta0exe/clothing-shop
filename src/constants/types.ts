@@ -21,11 +21,11 @@ export interface Product {
     name: string;
     imageUrl: string;
     price: number;
-    isDiscounted: boolean;
+    isDiscounted?: boolean;
     discountedPercentage?: number;
-    stars: number;
-    color: string;
-    category: string;
-    sizes: string[];
-    style: string[];
+    stars?: number;
+    color?: string[];
+    category?: string;
+    sizes?: string[];
+    style?: string[];
 }

@@ -14,8 +14,10 @@ interface Props {
 
 
 
-export default function ProductDetails({ params }: Props) {
-    const numberId = Number(params.id);
+export default async function ProductDetails({ params }: Props) {
+
+    const awaitedParams = await params;
+    const numberId = Number(awaitedParams.id);
 
     // SSR: get product on the server
     const product = Products.find((p) => p.id === numberId);
@@ -36,7 +38,7 @@ export default function ProductDetails({ params }: Props) {
             {/* Product section */}
             <div className="flex flex-col md:flex-row gap-5 md:px-[7.7rem]">
                 <div className="w-full md:w-1/2">
-                    <ProductImageDetails />
+                    <ProductImageDetails product={product} />
                 </div>
                 <div className="w-full md:w-1/2">
                     <ProductDetail item={product} />

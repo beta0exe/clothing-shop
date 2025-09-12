@@ -1,8 +1,13 @@
 "use client"
 import React, {useState} from 'react';
 import Image from "next/image";
+import {Product} from "@/constants/types";
 
-const ProductImageDetails = () => {
+interface props{
+    product: Product;
+}
+
+const ProductImageDetails = ({product}:props) => {
     const [selected,setSelected] = useState("/productDetails/1.svg");
     return (
         <div className="grid grid-cols-4 grid-rows-6 gap-3">
