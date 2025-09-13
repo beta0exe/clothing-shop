@@ -49,3 +49,8 @@
     outline: none !important;
     box-shadow: none !important; /* Tailwind ring uses box-shadow */
 }
+
+
+.random {
+    background-color: rgba(22, 70, 151, 0.53);
+}
