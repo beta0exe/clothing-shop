@@ -1,10 +1,9 @@
 import React from 'react';
+import LoginClient from "@/components/LoginClient";
 
 const login = () => {
     return (
-        <div>
-
-        </div>
+        <LoginClient />
     );
 };
 

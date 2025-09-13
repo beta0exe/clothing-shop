@@ -33,7 +33,9 @@ const Navbar = ({ className }: { className?: string }) => {
                     <Link href={"/cart"}>
                         <ShoppingCardNav />
                     </Link>
-                    <CircleUserRound className="cursor-pointer hover:text-red-700" />
+                    <Link href={"/login"}>
+                        <CircleUserRound className="cursor-pointer hover:text-red-700" />
+                    </Link>
                 </div>
             </div>
         </nav>

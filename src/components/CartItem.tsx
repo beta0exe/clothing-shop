@@ -24,8 +24,8 @@ const CartItem = ({cartItem}:Props) => {
                 <Image src={cartItem.product.imageUrl} width={200} height={150} alt={cartItem.product.name} className={"rounded-lg"} />
                 <div className={"flex flex-col  justify-around h-full items-start text-sm font-semibold"}>
                     <p className={"text-lg"}>{cartItem.product.name}</p>
-                    <p>Color: {cartItem.color}</p>
-                    <p>Size: {cartItem.size}</p>
+                    <p className={"text-lg"}><span className={"font-bold text-lg"}>Color:</span>   {cartItem.color}</p>
+                    <p className={"text-lg"}><span className={"font-bold text-lg"}>Size:</span>   {cartItem.size}</p>
                     <div className={"text-lg"}>Price For each Item: {cartItem.product.price} $ </div>
                 </div>
             </div>
