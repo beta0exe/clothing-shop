@@ -2,7 +2,6 @@
 
 import { FilterColors } from "@/constants/routes";
 import {Check} from "lucide-react";
-import {useState} from "react";
 
 interface Props {
     selectedColors: string[];

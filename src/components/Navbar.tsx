@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
 import SingUpDiscount from "@/components/SingUpDiscount";
-import { Nav_routes } from "@/constants/routes";
 import Link from "next/link";
-import { ChevronDown, ChevronUp, CircleUserRound, Search } from "lucide-react";
 import ShoppingCardNav from "@/components/ShoppingCartNav";
-import { useRouter } from "next/navigation";
 import SearchBar from "@/components/SearchBar";
 import NavLinks from "@/components/NavLinks";
+import {CircleUserRound} from "lucide-react";
 
 const Navbar = ({ className }: { className?: string }) => {
 

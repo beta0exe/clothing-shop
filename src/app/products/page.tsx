@@ -3,8 +3,10 @@
 import ProductClient from "../../components/ProductClient";
 import { Products as datas } from "@/constants/routes";
 
-interface Props {
-    searchParams: {
+export default async function ProductsPage({
+                                               searchParams,
+                                           }: {
+    searchParams: Promise<{
         page?: string;
         categories?: string;
         colors?: string;
@@ -14,40 +16,43 @@ interface Props {
         maxPrice?: string;
         sort?: "priceAsc" | "priceDesc";
         search?: string;
+    }>;
+}) {
+    // ✅ FIX: Await searchParams (required in Next.js 15)
+    const params = await searchParams;
 
-    };
-}
-
-export default async function ProductsPage({ searchParams }: Props) {
-    const searchParams1 = await searchParams;
-    const currentPage = Number(searchParams1.page) || 1;
+    const currentPage = Number(params.page) || 1;
     const productsPerPage = 9;
 
     // --- SERVER-SIDE FILTERING ---
-    const selectedCategories = searchParams1.categories?.split(",") ?? [];
-    const selectedColors = searchParams1.colors?.split(",") ?? [];
-    const selectedSizes = searchParams1.sizes?.split(",") ?? [];
-    const selectedStyle =  searchParams1.style?.split(",") ?? [];
+    const selectedCategories = params.categories?.split(",") ?? [];
+    const selectedColors = params.colors?.split(",") ?? [];
+    const selectedSizes = params.sizes?.split(",") ?? [];
+    const selectedStyle = params.style?.split(",") ?? [];
 
-
-
-    const searchQuery = searchParams1.search?.toLowerCase() || "";
+    const searchQuery = params.search?.toLowerCase() || "";
 
     const filteredProducts = datas.filter((p) => {
         const matchSearch = searchQuery === "" || p.name.toLowerCase().includes(searchQuery);
-        const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(p.category);
-        const matchColor = selectedColors.length === 0 || p.color.some((c) => selectedColors.includes(c));
-        const matchSize = selectedSizes.length === 0 || p.sizes.some((size) => selectedSizes.includes(size));
-        const matchStyle = selectedStyle.length === 0 || p.style.some((s) => selectedStyle.includes(s));
-        const matchPrice = p.price >= (Number(searchParams1.minPrice) || 0) &&
-            p.price <= (Number(searchParams1.maxPrice) || 500);
+        const matchCategory =
+            selectedCategories.length === 0 || (p.category && selectedCategories.includes(p.category));
+        const matchColor =
+            selectedColors.length === 0 || (p.color && p.color.some((c) => selectedColors.includes(c)));
+        const matchSize =
+            selectedSizes.length === 0 || (p.sizes && p.sizes.some((s) => selectedSizes.includes(s)));
+        const matchStyle =
+            selectedStyle.length === 0 || (p.style && p.style.some((s) => selectedStyle.includes(s)));
+        const matchPrice =
+            p.price >= (Number(params.minPrice) || 0) &&
+            p.price <= (Number(params.maxPrice) || 500);
 
         return matchSearch && matchCategory && matchColor && matchSize && matchStyle && matchPrice;
     });
 
-    if (searchParams1.sort === "priceAsc") {
+    // --- SORTING ---
+    if (params.sort === "priceAsc") {
         filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (searchParams1.sort === "priceDesc") {
+    } else if (params.sort === "priceDesc") {
         filteredProducts.sort((a, b) => b.price - a.price);
     }
 
@@ -64,7 +69,7 @@ export default async function ProductsPage({ searchParams }: Props) {
             totalProducts={totalProducts}
             totalPages={totalPages}
             currentPage={currentPage}
-            searchParams={searchParams}
+            searchParams={params} // ✅ Pass the resolved object
         />
     );
 }

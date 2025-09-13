@@ -1,6 +1,5 @@
 import React from 'react';
 import FilterTitle from "@/components/FilterTitle";
-import {ChevronRight} from "lucide-react";
 import {Products} from "@/constants/routes";
 
 interface styleFiltersProps {

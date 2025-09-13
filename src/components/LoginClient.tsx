@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import BaseForm from "@/components/BaseForm";
 import ValidateError from "@/components/ValidateError";
+import Link from "next/link";
 
 interface FormValues {
     email: string;
@@ -87,6 +88,7 @@ const LoginClient = () => {
                         type="submit"
                         className="self-center mt-3 w-[60%] text-2xl text-white ring-1 ring-gray-200 flex items-center justify-center md:h-15 rounded-2xl hover:bg-red-700"
                     >Submit</button>
+                    <Link className={"text-white text-xl ml-15"} href={"/register"} >Dont have any account ? (click Here)</Link>
                 </div>
             </form>
         </BaseForm>

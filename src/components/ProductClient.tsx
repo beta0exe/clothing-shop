@@ -13,7 +13,7 @@ import { FilterSizes } from "@/constants/routes";
 import { useState, useEffect } from "react";
 import FilterTitle from "@/components/FilterTitle";
 import DressStyleFilter from "@/components/dressStyleFilter";
-import {Product, ProductsType} from "@/constants/types";
+import { ProductsType} from "@/constants/types";
 
 interface Props {
     products: ProductsType[];
@@ -150,7 +150,7 @@ export default function ProductClient({
                 {/* Product Grid */}
                 <div className="w-3/4 rounded-t-2xl px-2 gap-10 flex flex-col">
                     <div className="flex items-center justify-between">
-                        <label htmlFor="sort" className="font-medium">Sort by:</label>
+                        <label htmlFor="sort" className="font-medium text-2xl">Sort by</label>
                         <select
                             id="sort"
                             value={sort}

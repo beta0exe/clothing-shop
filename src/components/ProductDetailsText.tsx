@@ -1,13 +1,13 @@
 "use client"
 import React from 'react';
-import {CartItem, Product, ProductsType} from "../constants/types"
+import { Product, } from "../constants/types"
 import {Star} from "lucide-react";
 import DiscountLabel from "@/components/DiscountLabel";
 import { useState } from "react";
 import { Check } from "lucide-react";
-import {Bcolors, FilterColors, Products, Sizes} from "@/constants/routes";
-import {useAppDispatch, useAppSelector} from "@/store/store";
-import {cartIncrement, productQuantitySelector} from "@/store/features/cartSlice";
+import {Bcolors, FilterColors,  Sizes} from "@/constants/routes";
+import {useAppDispatch, } from "@/store/store";
+import {cartIncrement, } from "@/store/features/cartSlice";
 
 
 interface products {

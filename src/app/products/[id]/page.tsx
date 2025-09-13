@@ -1,3 +1,4 @@
+// app/products/[id]/page.tsx
 import React from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -6,31 +7,31 @@ import ProductDetail from "@/components/ProductDetailsText";
 import { Products, TopSelling } from "@/constants/routes";
 import Section from "@/components/Section";
 import ProductCommentSection from "@/components/ProductCommentSection";
-import {ProductsType} from "@/constants/types";
+import { Product } from "@/constants/types";
 
-interface Props {
-    params: { id: string };
-}
+export default async function ProductDetails({
+                                                 params,
+                                             }: {
+    params: Promise<{ id: string }>;
+}) {
+    // ✅ Await params so Next.js type checker is satisfied
+    const { id } = await params;
+    const numberId = Number(id);
 
-
-
-export default async function ProductDetails({ params }: Props) {
-
-    const awaitedParams = await params;
-    const numberId = Number(awaitedParams.id);
-
-    // SSR: get product on the server
-    const product = Products.find((p) => p.id === numberId);
-
+    const product: Product | undefined = Products.find((p) => p.id === numberId);
     if (!product) return <p className="p-10">Product not found</p>;
 
     return (
         <div className="px-5 md:px-0">
             {/* Breadcrumb */}
             <div className="flex gap-2 items-center mb-10 md:px-[7.7rem]">
-                <Link href="/" className="text-gray-600 font-semibold">Home</Link>
+                <Link href="/" className="text-gray-600 font-semibold">
+                    Home
+                </Link>
                 <ChevronRight color="#666666" />
-                <Link href="/products" className="text-gray-600 font-semibold">Shop</Link>
+                <Link href="/products" className="text-gray-600 font-semibold">
+                    Shop
+                </Link>
                 <ChevronRight color="#666666" />
                 <span className="font-bold text-xl">{product.name}</span>
             </div>

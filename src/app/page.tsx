@@ -1,5 +1,3 @@
-import Image from "next/image";
-import {Button} from "@/components/ui/button";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import {NewArrivals,TopSelling} from "@/constants/routes";
