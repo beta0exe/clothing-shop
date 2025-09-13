@@ -22,21 +22,21 @@ const CartPage = () => {
     const total = (subTotal - totalDiscount)
 
     return(
-            <div className={"p-2 md:px-[7.7rem] flex"}>
+            <div className={"p-2 md:px-[7.7rem] flex px-5"}>
                 <div className={"w-full"}>
                     <div className="flex gap-2 items-center mb-10 ">
                         <Link href="/" className="text-gray-600 font-semibold">Home</Link>
                         <ChevronRight color="#666666" />
                         <Link href="/products" className="text-gray-900 font-semibold">Card</Link>
                     </div>
-                    <h1 className={"text-5xl font-bold mb-5"}>Your Card</h1>
-                    <div className={"flex gap-4 w-full "}>
+                    <h1 className={"text-3xl md:text-5xl font-bold mb-5"}>Your Card</h1>
+                    <div className={"flex flex-col md:flex-row gap-4 w-full "}>
                         <div className={" flex flex-col justify-center border-1 border-gray-200 rounded-lg min-h-[20rem] w-full"}>
                             {cartItems && cartItems.length > 0 ? cartItems.map((items) => (
                                 <CartItem key={items.product.id} cartItem={items} />)):
                                 <h1 className={"text-center font-bold text-3xl"}>No Item In your cart Yet</h1>}
                         </div>
-                        <div className={" flex flex-col gap-5 w-[40%] ring-1 ring-gray-200 rounded-lg p-5"}>
+                        <div className={" flex flex-col gap-5 w-full md:w-[40%] ring-1 ring-gray-200 rounded-lg p-5"}>
                             <h2 className={"font-bold text-xl"}>Order Summery</h2>
                             <div className={"w-full flex justify-between  items-center"}>
                                 <h2 className={"text-[#666666] text-xl "}>Subtotal</h2>

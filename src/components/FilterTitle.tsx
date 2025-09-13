@@ -2,7 +2,7 @@ import React, {ReactNode, useState} from 'react';
 import {ChevronDown, ChevronUp} from "lucide-react";
 
 const FilterTitle = ({title,className,children}:{title:string,className?:string,children?:ReactNode}) => {
-    const [hide,setHide] = useState(false);
+    const [hide,setHide] = useState(true);
     return (
         <div>
             <div className={`items-center flex py-5 justify-between ${className}`}>

@@ -81,7 +81,7 @@ export default function ProductCommentSection({ id }: ProductCommentSectionProps
                             <button className="bg-[#F0F0F0] rounded-3xl p-4 flex gap-2 items-center justify-center">
                                 Latest <ChevronDown />
                             </button>
-                            <button className="bg-black text-white p-4 rounded-3xl">
+                            <button className="bg-black text-sm md:text-base text-white p-4 rounded-3xl">
                                 Write a Review
                             </button>
                         </div>

@@ -56,10 +56,10 @@ const RegisterClient = () => {
     }, [formErrors, submit, formValues]);
 
     return (
-        <BaseForm className="flex justify-start items-start p-20 h-[95%]">
+        <BaseForm className="flex justify-start items-start p-5 md:p-20 md:h- ">
             <form className="w-full" onSubmit={handleSubmit}>
-                {submit && Object.keys(formErrors).length === 0 ? <p className={"text-green-800 text-3xl text-center mb-5 ring-1 ring-green-800 p-3 rounded-2xl"}>You Has Successfully registered</p>:""}
-                <h1 className="text-5xl text-white text-center pb-15 border-b-1 border-white">Register Form</h1>
+                {submit && Object.keys(formErrors).length === 0 ? <p className={"text-green-800 text-base md:text-3xl text-center mb-5 ring-1 ring-green-800 p-3 rounded-2xl"}>You Has Successfully registered</p>:""}
+                <h1 className=" text-3xl md:text-5xl text-white text-center pb-5 md:pb-15 border-b-1 border-white">Register Form</h1>
                 <div className="mt-7 flex flex-col gap-10">
 
                     <div className="flex flex-col gap-4 items-center">
@@ -70,7 +70,7 @@ const RegisterClient = () => {
                             placeholder="Username"
                             value={formValues.username}
                             onChange={handleChange}
-                            className="px-5 ring-1 ring-gray-200 md:h-15 rounded-xl placeholder:text-xl placeholder:text-gray-600 w-[80%] focus:outline-none"
+                            className="px-5 ring-1 ring-gray-200 h-10 md:h-15 rounded-xl placeholder:text-xl placeholder:text-gray-600 w-full  md:w-[80%] focus:outline-none"
                         />
                         <ValidateError error={formErrors.username} />
                     </div>
@@ -83,7 +83,7 @@ const RegisterClient = () => {
                             placeholder="Email"
                             value={formValues.email}
                             onChange={handleChange}
-                            className="px-5 ring-1 ring-gray-200 md:h-15 rounded-xl placeholder:text-xl placeholder:text-gray-600 w-[80%] focus:outline-none"
+                            className="px-5 ring-1 ring-gray-200 h-10 md:h-15 rounded-xl placeholder:text-xl placeholder:text-gray-600 w-full  md:w-[80%] focus:outline-none"
                         />
                         <ValidateError error={formErrors.email} />
                     </div>
@@ -96,16 +96,16 @@ const RegisterClient = () => {
                             placeholder="Password"
                             value={formValues.password}
                             onChange={handleChange}
-                            className="px-5 ring-1 ring-gray-200 md:h-15 rounded-xl placeholder:text-xl placeholder:text-gray-600 w-[80%] focus:outline-none"
+                            className="px-3 md:px-5 ring-1 ring-gray-200 h-10 md:h-15 rounded-xl placeholder:text-xl placeholder:text-gray-600 w-full  md:w-[80%] focus:outline-none"
                         />
                         <ValidateError error={formErrors.password} />
                     </div>
 
                     <button
                         type="submit"
-                        className="self-center mt-3 w-[60%] text-2xl text-white ring-1 ring-gray-200 flex items-center justify-center md:h-15 rounded-2xl hover:bg-red-700"
+                        className="self-center mt-3 w-full h-12  md:w-[60%] text-2xl text-white ring-1 ring-gray-200 flex items-center justify-center md:h-15 rounded-2xl hover:bg-red-700"
                     >Submit</button>
-                    <Link className={"text-white text-xl ml-15 "} href={"/login"} >Already have an account ?(click Here)</Link>
+                    <Link className={"text-white text-sm md:text-xl ml-5 md:ml-15 "} href={"/login"} >Already have an account ?(click Here)</Link>
                 </div>
             </form>
         </BaseForm>

@@ -47,7 +47,7 @@ export default async function ProductDetails({
             </div>
 
             {/* Comments */}
-            <div className="w-full p-10 md:px-30">
+            <div className="w-full p-2 md:px-30">
                 <ProductCommentSection id={numberId} />
             </div>
 

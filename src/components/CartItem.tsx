@@ -19,17 +19,17 @@ const CartItem = ({cartItem}:Props) => {
     },[cartItem.quantity])
 
     return (
-        <div className={"w-full flex flex-1 justify-between border-b-1 border-gray-200  items-center  py-2 px-5"}>
+        <div className={"w-full flex flex-col md:flex-row flex-1 justify-between border-b-1 border-gray-200  items-center  py-2 px-2 md:px-5"}>
             <div className={"flex py-3 gap-5 h-full "}>
                 <Image src={cartItem.product.imageUrl} width={200} height={150} alt={cartItem.product.name} className={"rounded-lg"} />
-                <div className={"flex flex-col  justify-around h-full items-start text-sm font-semibold"}>
+                <div className={"flex flex-col gap-3  justify-around h-full items-start text-sm font-semibold"}>
                     <p className={"text-lg"}>{cartItem.product.name}</p>
                     <p className={"text-lg"}><span className={"font-bold text-lg"}>Color:</span>   {cartItem.color}</p>
                     <p className={"text-lg"}><span className={"font-bold text-lg"}>Size:</span>   {cartItem.size}</p>
                     <div className={"text-lg"}>Price For each Item: {cartItem.product.price} $ </div>
                 </div>
             </div>
-            <div className={"flex flex-col h-full gap-5 justify-between py-5 items-end"}>
+            <div className={"flex flex-row md:flex-col h-full gap-5 w-full md:w-auto justify-between py-3 md:py-5 items-center md:items-end"}>
 
                 <Trash2 color="#E92F2F" onClick={()=>dispatch(cartRemove({product:cartItem.product,
                     color:cartItem.color,size:cartItem.size}))} />

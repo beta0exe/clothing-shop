@@ -28,7 +28,7 @@ const ProductDetail = ({item}:{item:Product}) => {
 
     const finalPrice = item?.isDiscounted && item.discountedPercentage? item.price * (1-item.discountedPercentage /100) : item?.price;
     return (
-        <div className={"px-10 p-2"}>
+        <div className={"px-0 md:px-10 p-2"}>
             <h1 className={"font-bold text-4xl  mb-5"}>{item?.name}</h1>
             {/*stars*/}
             <div className={"flex gap-1 items-center  mb-5"}>

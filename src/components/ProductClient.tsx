@@ -89,7 +89,7 @@ export default function ProductClient({
     return (
         <div className="pb-10">
             {/* Breadcrumbs */}
-            <div className="flex gap-2 items-center mb-10 md:px-[7.7rem]">
+            <div className="flex gap-2 items-center mb-10 px-4 md:px-[7.7rem]">
                 <Link href="/" className="text-[#666666] font-semibold">
                     Home
                 </Link>
@@ -101,9 +101,9 @@ export default function ProductClient({
                 <span className="font-bold text-xl">Products</span>
             </div>
 
-            <div className="flex gap-5 md:px-[7.7rem]">
+            <div className="flex flex-col md:flex-row px-4 gap-5 md:px-[7.7rem] ">
                 {/* Filters */}
-                <div className="w-1/4 flex flex-col rounded-2xl p-6 ring-1 ring-gray-300 self-start">
+                <div className=" w-full md:w-1/4 flex flex-col rounded-2xl p-6 ring-1 ring-gray-300 self-start">
                     <div className="flex justify-between items-center border-b border-gray-300 pb-8">
                         <h1 className="text-3xl font-semibold">Filters</h1>
                         <SlidersVertical />
@@ -148,7 +148,7 @@ export default function ProductClient({
                 </div>
 
                 {/* Product Grid */}
-                <div className="w-3/4 rounded-t-2xl px-2 gap-10 flex flex-col">
+                <div className="w-full md:w-3/4 rounded-t-2xl px-2 gap-10 flex flex-col">
                     <div className="flex items-center justify-between">
                         <label htmlFor="sort" className="font-medium text-2xl">Sort by</label>
                         <select
@@ -163,7 +163,7 @@ export default function ProductClient({
                         </select>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-x-5 gap-y-10 border-b border-gray-300 pb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-10 border-b border-gray-300 pb-10">
                         {products.map((item) => (
                             <ProductCard key={item.id} products={item} />
                         ))}
