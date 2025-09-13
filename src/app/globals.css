@@ -47,10 +47,22 @@
 .btn-color-dot:focus,
 .btn-color-dot:focus-visible {
     outline: none !important;
-    box-shadow: none !important; /* Tailwind ring uses box-shadow */
+    box-shadow: none !important;
 }
 
 
 .random {
     background-color: rgba(22, 70, 151, 0.53);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.5s;
 }

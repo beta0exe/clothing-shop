@@ -69,7 +69,7 @@ export default async function ProductsPage({
             totalProducts={totalProducts}
             totalPages={totalPages}
             currentPage={currentPage}
-            searchParams={params} // ✅ Pass the resolved object
+            searchParams={params}
         />
     );
 }

@@ -12,7 +12,7 @@ const Hero = () => {
                     <h1 className={"uppercase text-5xl font-bold md:hidden text-center mb-10 mt-10"}>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
                     <p className={"w-[100%] md:w-[55rem] font-semibold  text-p-gray mb-15 text-center"}>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
                     <Link href={"/products"} className={"md:ml-80 border-1 border-[#E6E6E6] rounded-full px-12 font-semibold py-5 bg-black text-white transition duration-200 mb-10 hover:bg-red-700  cursor-pointer"}>Shop Now</Link>
-                    <div className={"flex w-[100vw] ml-6 md:ml-0 mb-5 md:mb-0 flex-wrap items-center justify-center md:justify-start"}>
+                    <div className={"flex w-[100vw] ml-6 md:ml-0 mb-5 md:mb-0 flex-wrap items-center justify-center md:justify-start fade-in"}>
                         <div className={" border-r-0 md:border-r-1 border-gray-400 pr-10  "}>
                             <h2 className={"semiTitles text-center"}>200+</h2>
                             <p className={"text-p-gray text-lg"}>International Brands</p>

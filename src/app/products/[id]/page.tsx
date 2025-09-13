@@ -14,7 +14,6 @@ export default async function ProductDetails({
                                              }: {
     params: Promise<{ id: string }>;
 }) {
-    // ✅ Await params so Next.js type checker is satisfied
     const { id } = await params;
     const numberId = Number(id);
 
